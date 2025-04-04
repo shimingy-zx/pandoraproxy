@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  pandoraproxy:
+    build: .
+    container_name: pandoraproxy
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/app
+      - /app/node_modules
